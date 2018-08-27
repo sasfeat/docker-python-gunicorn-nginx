@@ -1,9 +1,8 @@
-FROM python:3.6.4
+FROM python:2.7
 MAINTAINER Matthieu Gouel <matthieu.gouel@gmail.com>
 
 # Software version management
-ENV NGINX_VERSION=1.13.8-1~jessie
-ENV SUPERVISOR_VERSION=3.0r1-1+deb8u1
+ENV NGINX_VERSION=1.13.12-1~stretch
 ENV GUNICORN_VERSION=19.7.1
 ENV GEVENT_VERSION=1.2.2
 
@@ -15,10 +14,9 @@ COPY ./app /app
 RUN pip install -r /app/requirements.txt
 
 # System packages installation
-RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
+RUN echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list
 RUN wget https://nginx.org/keys/nginx_signing.key -O - | apt-key add -
-RUN apt-get update && apt-get install -y nginx=$NGINX_VERSION \
-                                         supervisor=$SUPERVISOR_VERSION \
+RUN apt-get update && apt-get install -y nginx=$NGINX_VERSION supervisor\
 && rm -rf /var/lib/apt/lists/*
 
 # Nginx configuration
