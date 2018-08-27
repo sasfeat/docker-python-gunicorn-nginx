@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/github/license/matthieugouel/docker-python-gunicorn-nginx.svg)](https://github.com/matthieugouel/docker-python-gunicorn-nginx/blob/master/LICENSE)
 
 
-This image contains Nginx and Gunicorn on top of Python3 docker image.
+This image contains Nginx and Gunicorn on top of Python2 docker image.
 These two software are managed with Supervisor.
 
 ## Usage
